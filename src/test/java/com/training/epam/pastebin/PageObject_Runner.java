@@ -1,15 +1,11 @@
-package com.training.epam.pageObject;
+package com.training.epam.pastebin;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.support.PageFactory;
-import org.testng.Assert;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-
-import java.util.Arrays;
 
 public class PageObject_Runner {
     String base_url = "https://pastebin.com";
@@ -28,12 +24,13 @@ public class PageObject_Runner {
     }
 
     @Test
-    public void tst1() throws InterruptedException {
+    public void tstPastebin() throws InterruptedException {
         driver.get(base_url);
 
         PageObject page = PageFactory.initElements(driver, PageObject.class);
+        //PageObject page = new PageObject(driver);
         page.clickButtonCreateNew();
-        Thread.sleep(1000);
+       // Thread.sleep(1000);
         page.enterCode("Hello from WebDriver");
         page.pasteExpiration();
         page.pasteName("helloWeb");
